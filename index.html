@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="https://forthelper.github.io/assets/icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://andreymrovol.github.io/material/material.css">
+<script defer src="https://andreymrovol.github.io/material/material.js"></script>
+<link rel="stylesheet" href="https://forthelper.github.io/assets/style.css">
+<style>
+
+body{
+    color: #cacaca;
+    margin: 0;
+    padding: 20px;
+
+		background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main{
+  display: flex;
+  padding: 5px;
+}
+
+.parent {
+  position: relative;
+  top: 0;
+}
+.image1 {
+  width: 800px;
+  height: width;
+  position: relative;
+  top: 0;
+  left: 0;
+  border-radius: 15px 0 0 15px;
+}
+
+.ima {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+@keyframes appear{
+  from{
+    opacity: 0;
+    height: 35px;
+    width: 200px;
+  }
+  to{
+    opacity: 1;
+    height: 35px;
+    width: 200px;
+  }
+}
+
+@keyframes disappear{
+  from{
+    opacity: 1;
+    height: 35px;
+    width: 200px;
+  }
+  to{
+    opacity: 0;
+    height: 35px;
+    width: 200px;
+    transform: scale(0);
+  }
+}
+
+@keyframes selectionShow {
+  from{
+    transform: scale(1);
+  }
+  to{
+    transform: scale(5);
+  }
+}
+
+@keyframes selectionHide {
+  from{
+    transform: scale(5);
+  }
+  to{
+    transform: scale(1);
+  }
+}
+
+@keyframes hideAll {
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+  }
+}
+
+@keyframes showAll {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #262626;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.noteshow{
+  display: flex;
+  position: absolute;
+  visibility: visible;
+
+  animation-name: appear;
+  animation-duration: .6s;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+
+.notehide{
+  animation-name: disappear;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+}
+
+.notehidden{
+  visibility: hidden;
+}
+
+.butts{
+  width: 250px;
+  height: 800px;
+  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 25px 25px 0;
+}
+
+.collection{
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background-color: #212121;
+  overflow: auto;
+}
+
+.collection a.collection-item{
+  background-color: #424242;
+  color: #fff;
+}
+
+.collection a.collection-item:not(.active):hover {
+  background-color: #EF6C00;
+}
+
+.listSelected{
+  animation-name: selectionShow;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+.listNotSelected{
+  animation-name: selectionHide;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.hideMe{
+  animation-name: hideAll;
+  animation-duration: 2s;
+  animation-direction: both;
+  animation-fill-mode: both;
+}
+
+.showMe{
+  animation-name: showAll;
+  animation-duration: 2s;
+  animation-direction: both;
+  animation-fill-mode: both;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Page content -->
+<div class="main">
+
+  <div class="parent">
+    <img class="image1" id="map" src="https://forthelper.github.io/assets/map/map.png" />
+    <div class="ima" id='ima'></div>
+  </div>
+
+  <div class="collection butts" id="butts">
+      </div>
+
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src="./listHover.js" defer></script>
+<script src="./index.js" defer></script>
+
+</body>
+</html>
