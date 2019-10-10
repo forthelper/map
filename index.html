@@ -165,6 +165,7 @@ body{
   margin: 0;
   background-color: #212121;
   overflow: auto;
+  border-radius: 0 25px 25px 0;
 }
 
 .collection a.collection-item{
@@ -179,7 +180,6 @@ body{
 .listSelected{
   animation-name: selectionShow;
   animation-duration: 3s;
-  animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 
@@ -203,6 +203,11 @@ body{
   animation-fill-mode: both;
 }
 
+#footer *{
+  border-radius: 0 15px 15px 0 !important;
+  position: relative !important;
+}
+
 </style>
 </head>
 <body>
@@ -215,7 +220,9 @@ body{
     <div class="ima" id='ima'></div>
   </div>
 
-  <div class="collection butts" id="butts">
+  <div class="butts">
+    <div class="collection" id="butts"></div>
+    <div id='footer'></div>
       </div>
 
 </div>
@@ -224,5 +231,6 @@ body{
 <script src="./listHover.js" defer></script>
 <script src="./index.js" defer></script>
 
+<script src="https://forthelper.github.io/assets/footer.js"></script>
 </body>
 </html>

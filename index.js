@@ -4,16 +4,12 @@ var points = [];
 
 function dataReady(data){
   pointsJSON = data;
-  points = pointsJSON.fortbytes;
+  points = pointsJSON.points;
   console.log(points)
 
   $('#butts').append(createList(points));
   $("#ima").append(makePoints(points));
 }
-
-$.getJSON('https://mrovtest.github.io/f/season.json', function(data) {
-   dataReady(data);
-});
 
 
 function createList(array) {
@@ -45,7 +41,8 @@ function makePoints(array) {
     var height = positionInfo.height;
     var width = positionInfo.width;
 
-    var started = pointsJSON.map;
+    // var started = pointsJSON.map;
+    var started = 4000;
     var fin = width/started;
 
     var circle = 45/started;
@@ -119,3 +116,22 @@ function makePoints(array) {
     }
     return di;
 }
+
+function loadContent(){}
+    let params = document.location.search || window.location.hash;
+    if (params) {
+        console.log("Found params to load from");
+
+        if (params.startsWith("?") || params.startsWith("#")) {
+            params = params.substring(1);
+            console.log(params);
+
+            $.getJSON(params, function(data) {
+              console.log(data)
+               dataReady(data);
+            });
+        }
+
+  }
+
+$(loadContent);
