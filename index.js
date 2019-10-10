@@ -18,14 +18,14 @@ function createList(array) {
      for (var i = 0; i < array.length; i++) {
        let a = array[i];
 
-       let num = a.number;
-       let note = a.note;
+       let num = i+1;
+       let note = a.list;
 
-var ah = document.createElement('a');
-var textNode = document.createTextNode(note);
-ah.appendChild(textNode);
-ah.className = 'collection-item';
-ah.id = "listItem" + num;
+    var ah = document.createElement('a');
+    var textNode = document.createTextNode(note);
+    ah.appendChild(textNode);
+    ah.className = 'collection-item';
+    ah.id = "listItem" + num;
 
 
       di.appendChild(ah);
@@ -56,7 +56,7 @@ function makePoints(array) {
       var divi = document.createElement('div');
       let a = array[i];
 
-      let num = a.number;
+      let num = i+1;
       let note = a.note;
 
 //			console.warn(typeof a.type == "string");
@@ -96,7 +96,7 @@ function makePoints(array) {
         divi.appendChild(document.createTextNode(note));
 
 
-        ah.title = num;
+        ah.title = a.hover;
         divi.id = tID;
         ah.className = 'hhhh'
         divi.className = 'notehidden';
@@ -119,6 +119,8 @@ function makePoints(array) {
 
 function loadContent(){}
     let params = document.location.search || window.location.hash;
+//    params = "?https://mrovtest.github.io/f/json.json";
+
     if (params) {
         console.log("Found params to load from");
 
