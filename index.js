@@ -2,6 +2,7 @@ var pointsJSON = {};
 var points = [];
 
 
+// On JSON load use data to display list and specified points.
 function dataReady(data){
   pointsJSON = data;
   points = pointsJSON.points;
@@ -12,6 +13,7 @@ function dataReady(data){
 }
 
 
+// Create points list
 function createList(array) {
      var di = document.createElement('div');
      // Create the list element:
@@ -20,6 +22,12 @@ function createList(array) {
 
        let num = i+1;
        let note = a.list;
+
+
+       // Skip if point has no coordinates
+       if(a.coordinates == undefined){
+         continue;
+       }
 
     var ah = document.createElement('a');
     var textNode = document.createTextNode(note);
@@ -34,6 +42,7 @@ function createList(array) {
     return di;
 }
 
+// Draw circles on specified coordinates
 function makePoints(array) {
 
     var element = document.getElementById('map');
@@ -117,23 +126,43 @@ function makePoints(array) {
     return di;
 }
 
+// Load JSON from site address;
 function loadContent(){}
     let params = document.location.search || window.location.hash;
-//    params = "?https://mrovtest.github.io/f/json.json";
+    // params = "?json.json#frame";
+    console.warn(params);
 
     if (params) {
         console.log("Found params to load from");
+        // var URL = "https://forthelper.github.io/assets/";
+        var URL = "https://mrovtest.github.io/f/";
+
+        // if(params.includes("#frame")){
+        //   console.log("para")
+        //   params.replace("#frame", "");
+        //   $("#map").style['width'] = "500px";
+        //   $(".butts").style['height'] = '500px';
+        // }
 
         if (params.startsWith("?") || params.startsWith("#")) {
             params = params.substring(1);
+            params = URL + params;
             console.log(params);
 
             $.getJSON(params, function(data) {
               console.log(data)
                dataReady(data);
             });
+
+            if(params.includes("#frame")){
+              $(".image1").css('width', '500px');
+              $(".butts").css('height', "500px");
+              $(".butts").css('width', "150px");
+              $("#footer").css('font-size', "12px");
+            }
         }
 
   }
 
+// Start
 $(loadContent);
