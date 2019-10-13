@@ -129,7 +129,7 @@ function makePoints(array) {
 // Load JSON from site address;
 function loadContent(){}
     let params = document.location.search || window.location.hash;
-    // params = "?json.json#frame";
+    // params = "?json.json";
     console.warn(params);
 
     if (params) {
@@ -154,7 +154,7 @@ function loadContent(){}
                dataReady(data);
             });
 
-            if(params.includes("#frame")){
+            if(params.includes("-frame")){
               $(".image1").css('width', '500px');
               $(".butts").css('height', "500px");
               $(".butts").css('width', "150px");
