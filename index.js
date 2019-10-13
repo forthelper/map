@@ -144,16 +144,18 @@ function loadContent(){}
         //   $(".butts").style['height'] = '500px';
         // }
 
-        if(params.includes("-frame")){
-          $(".image1").css('width', '500px');
-          $(".butts").css('height', "500px");
-          $(".butts").css('width', "150px");
-          $("#footer").css('font-size', "12px");
-
-          params = params.replace('-frame', "");
-        }
-
         if (params.startsWith("?") || params.startsWith("#")) {
+
+          console.warn(params.includes("-frame"))
+          if(params.includes("-frame")){
+            $(".image1").css('width', '500px');
+            $(".butts").css('height', "500px");
+            $(".butts").css('width', "150px");
+            $("#footer").css('font-size', "12px");
+
+            params = params.replace('-frame', "");
+          }
+
             params = params.substring(1);
             params = URL + params;
             console.log(params);
