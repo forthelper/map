@@ -129,7 +129,7 @@ function makePoints(array) {
 // Load JSON from site address;
 function loadContent(){}
     let params = document.location.search || window.location.hash;
-    // params = "?json.json";
+    params = "?json.json-frame";
     console.warn(params);
 
     if (params) {
@@ -144,6 +144,15 @@ function loadContent(){}
         //   $(".butts").style['height'] = '500px';
         // }
 
+        if(params.includes("-frame")){
+          $(".image1").css('width', '500px');
+          $(".butts").css('height', "500px");
+          $(".butts").css('width', "150px");
+          $("#footer").css('font-size', "12px");
+
+          params = params.replace('-frame', "");
+        }
+
         if (params.startsWith("?") || params.startsWith("#")) {
             params = params.substring(1);
             params = URL + params;
@@ -154,12 +163,6 @@ function loadContent(){}
                dataReady(data);
             });
 
-            if(params.includes("-frame")){
-              $(".image1").css('width', '500px');
-              $(".butts").css('height', "500px");
-              $(".butts").css('width', "150px");
-              $("#footer").css('font-size', "12px");
-            }
         }
 
   }
