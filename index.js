@@ -5,6 +5,7 @@ var points = [];
 // On JSON load use data to display list and specified points.
 function dataReady(data){
   pointsJSON = data;
+  console.warn(pointsJSON)
   points = pointsJSON.points;
   console.log(points)
 
@@ -129,19 +130,20 @@ function makePoints(array) {
 // Load JSON from site address;
 function loadContent(){}
     let params = document.location.search || window.location.hash;
-    // params = "?json.json-frame";
+    // params = "?locations/star1.json";
     console.warn(params);
 
     if (params) {
         console.log("Found params to load from");
-        // var URL = "https://forthelper.github.io/assets/";
-        var URL = "https://mrovtest.github.io/f/";
+        var URL = "https://forthelper.github.io/assets/";
 
         if(params.includes("-frame")){
           $(".image1").css('width', '500px');
           $(".butts").css('height', "500px");
           $(".butts").css('width', "150px");
           $("#footer").css('font-size', "12px");
+          $("#butts").css('display', 'none');
+          $(".image1").css('border-radius', '15px');
 
           params = params.replace('-frame', "");
         }
