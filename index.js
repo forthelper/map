@@ -138,11 +138,11 @@ function loadContent(){}
         var URL = "https://forthelper.github.io/assets/";
 
         if(params.includes("-frame")){
-          $(".image1").css('width', '500px');
-          $(".butts").css('height', "500px");
+          $(".image1").css('width', '400px');
+          $(".butts").css('height', "400px");
           $(".butts").css('width', "150px");
+          $(".butts").css('display', 'none');
           $("#footer").css('font-size', "12px");
-          $("#butts").css('display', 'none');
           $(".image1").css('border-radius', '15px');
 
           params = params.replace('-frame', "");
